@@ -6,133 +6,238 @@
     <title>CV - Nguyen Hoa Khang</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e9ecef;
-            color: #343a40;
+            background-color: #f0f2f5;
+            color: #333;
         }
+
         .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #007bff;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #495057;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 5px;
-        }
-        .info {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ced4da;
-            padding-bottom: 10px;
+            flex-direction: row;
+            max-width: 1200px;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
         }
-        .info div {
-            font-size: 1rem;
+
+        .sidebar {
+            width: 30%;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
         }
-        a {
-            color: #007bff;
+
+        .sidebar img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .sidebar h1 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .sidebar p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        .sidebar a {
+            color: #1abc9c;
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .sidebar .skills-section {
+            margin-top: 20px;
+            text-align: left;
         }
-        .skills, .projects {
+
+        .sidebar .skills-section h2 {
+            font-size: 1.2em;
+            color: #ecf0f1;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .skills-section ul {
             list-style: none;
             padding: 0;
         }
-        .skills li, .projects li {
+
+        .sidebar .skills-section ul li {
+            background: #34495e;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .main {
+            width: 70%;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 2px solid #1abc9c;
             margin-bottom: 15px;
-            background: #f8f9fa;
-            padding: 10px 15px;
-            border-radius: 5px;
+            color: #2c3e50;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section p, .section ul {
+            font-size: 1em;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #1abc9c;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .projects li strong {
-            color: #007bff;
+
+        .section ul li strong {
+            color: #2c3e50;
         }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #868e96;
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .main {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="sidebar">
+            <img src="Photo/AnhCV.jpg" alt="Nguyen Hoa Khang">
             <h1>Nguyen Hoa Khang</h1>
-            <p style="text-align: center;"><strong>Applying for:</strong> Software Engineer</p>
-            <div class="info">
-                <div>📞 (+84) 0931448210</div>
-                <div>✉️ <a href="mailto:Khang113324@gmail.com">Khang113324@gmail.com</a></div>
-                <div>🌐 <a href="https://github.com/P1emon" target="_blank">GitHub</a></div>
+            <p>Software Engineer</p>
+            <p>📞 (+84) 0931448210</p>
+            <p>✉️ <a href="mailto:Khang113324@gmail.com">Khang113324@gmail.com</a></p>
+            <p>📍 Ho Chi Minh City, Vietnam</p>
+            <p><a href="https://github.com/P1emon">GitHub</a></p>
+
+            <div class="skills-section">
+                <h2>Technical Skills</h2>
+                <ul>
+                    <li>C#</li>
+                    <li>Python</li>
+                    <li>ASP.NET</li>
+                    <li>SQL</li>
+                    <li>GitHub</li>
+                </ul>
+
+                <h2>Soft Skills</h2>
+                <ul>
+                    <li>Leadership</li>
+                    <li>Project Management</li>
+                    <li>Team Collaboration</li>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Time Management</li>
+                </ul>
             </div>
-        </header>
+        </div>
 
-        <section class="section">
-            <h2>Personal Information</h2>
-            <p><strong>Date of Birth:</strong> 28th November 2003</p>
-        </section>
+        <div class="main">
+            <section class="section">
+                <h2>About Me</h2>
+                <p>A dedicated Software Engineer with experience in project management and full-stack development. Passionate about creating efficient, scalable solutions and leading development teams to successful project completion.</p>
+            </section>
 
-        <section class="section">
-            <h2>Education</h2>
-            <p><strong>NIIE (Nguyen Tat Thanh Institute of International Education)</strong> - Ho Chi Minh City, Viet Nam<br>
-            Bachelor in Computer and Information Science (09/2021 - 05/2025)</p>
-        </section>
+            <section class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        <strong>NIIE (Nguyen Tat Thanh Institute of International Education)</strong>
+                        <p>Bachelor in Computer and Information Science (09/2021 - 05/2025)</p>
+                        <p>GPA: 3.76/4.0 (9.00/10.00)</p>
+                        <p>Ho Chi Minh City, Vietnam</p>
+                    </li>
+                </ul>
+            </section>
 
-        <section class="section">
-            <h2>Projects</h2>
-            <ul class="projects">
-                <li>
-                    <strong>E-Commerce Shop</strong> (12/2024 - Now)
-                    <p>Role: Backend and Frontend Developer</p>
-                    <p>Technology: ASP.NET Core, MailChimp, Tawk.to, PayPal, VnPay, Azure, MSSQL</p>
-                    <p>Overview: Developed a scalable e-commerce platform with user account management, secure payment integration, and promotional email automation using MailChimp and Azure services.</p>
-                    <a href="https://github.com/P1emon/Shop3K1D-EC" target="_blank">GitHub</a> |
-                    <a href="https://3k1decmshop-fdgndaakayfqfzeq.southeastasia-01.azurewebsites.net/" target="_blank">Live Demo</a>
-                </li>
-                <li>
-                    <strong>Online Booking Cinema</strong> (07/2024 - 10/2024)
-                    <p>Role: Backend Developer</p>
-                    <p>Technology: ASP.NET Core, Bootstrap5, SweetAlert2, MSSQL</p>
-                    <p>Overview: Built a web-based cinema booking system featuring seat selection, ticket purchasing, and user notifications for booking confirmations.</p>
-                    <a href="https://github.com/KAHOCCODE/FinalProject_3K1D" target="_blank">GitHub</a>
-                </li>
-            </ul>
-        </section>
+            <section class="section">
+                <h2>Projects</h2>
+                <ul>
+                    <li>
+                        <strong>E-Commerce Shop</strong> (12/2024 - Present)
+                        <p>Role: Backend and Frontend Developer</p>
+                        <p>Technologies: ASP.NET Core, MailChimp, Tawk.to, PayPal, VnPay, Azure, MSSQL</p>
+                        <p>Overview: Developed a scalable e-commerce platform with user account management, secure payment integration, and promotional email automation using MailChimp and Azure services.</p>
+                        <p>Live Demo: <a href="https://3k1decmshop-fdgndaakayfqfzeq.southeastasia-01.azurewebsites.net" target="_blank">E-Commerce Shop</a></p>
+                        <a href="https://github.com/P1emon/Shop3K1D-EC">GitHub</a>
+                    </li>
+                    <li>
+                        <strong>Online Booking Cinema</strong> (07/2024 - 10/2024)
+                        <p>Role: Backend Developer</p>
+                        <p>Technologies: ASP.NET Core, Bootstrap5, SweetAlert2, MSSQL</p>
+                        <p>Overview: Built a web-based cinema booking system featuring seat selection, ticket purchasing, and user notifications for booking confirmations.</p>
+                        <a href="https://github.com/KAHOCCODE/FinalProject_3K1D">GitHub</a>
+                    </li>
+                    <li>
+                        <strong>WinForms Cinema Management System</strong> (2023 - 2024)
+                        <p>Role: Full-Stack Developer</p>
+                        <p>Technologies: C#, WinForms, MSSQL</p>
+                        <p>Overview: Developed a desktop-based cinema management application that supports scheduling, ticketing, and customer management with robust database integration.</p>
+                        <a href="https://github.com/KAHOCCODE/Cinema_3K1D">GitHub</a>
+                    </li>
+                    <li>
+                        <strong>English Learning Website for Kids</strong> (2022 - 2023)
+                        <p>Role: Web Developer</p>
+                        <p>Technologies: HTML, CSS, PHP, MySQL</p>
+                        <p>Overview: Built an interactive platform designed for kids to learn English, featuring user login, personalized progress tracking, and fun, educational content.</p>
+                    </li>
+                    <li>
+                        <strong>Football and Car Management System</strong> (2021 - 2022)
+                        <p>Role: Developer</p>
+                        <p>Technologies: Python, WinForms, MySQL</p>
+                        <p>Overview: Created database applications for managing football tournament schedules and car information, enhancing system reliability and data storage.</p>
+                    </li>
+                </ul>
+            </section>
 
-        <section class="section">
-            <h2>Awards and Honors</h2>
-            <p>Word - PowerPoint - Excel (MOS): (06/2024)</p>
-            <p>Incentive scholarships (NIIE) : (06/2023 & 07/2024)</p>
-        </section>
+            <section class="section">
+                <h2>Achievements</h2>
+                <ul>
+                    <li>Third Prize - Daily Life Video Contest by English Club (12/2023)</li>
+                </ul>
+            </section>
 
-        <section class="section">
-            <h2>Skills</h2>
-            <ul class="skills">
-                <li>Programming Languages: C#, Python</li>
-                <li>Tools and Frameworks: GitHub, ASP.NET, Bootstrap, MailChimp, Tawk.to, PayPal, VnPay, SQL</li>
-                <li>Languages: English (Proficient)</li>
-            </ul>
-        </section>
-
-        <footer>
-            <p>© 2025 Nguyen Hoa Khang. All rights reserved.</p>
-        </footer>
+            <section class="section">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Microsoft Office Specialist (MOS) - 06/2024</li>
+                    <li>Incentive scholarships (NIIE) - 06/2023 & 07/2024</li>
+                </ul>
+            </section>
+        </div>
     </div>
 </body>
 </html>
