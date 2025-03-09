@@ -3,228 +3,563 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Nguyen Hoa Khang</title>
+    <title>Nguyen Hoa Khang - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
+            background: linear-gradient(135deg, #f9f7f3, #e6f0fa);
+            color: #374151;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        .container {
+        .header {
+            background: url('https://images.unsplash.com/photo-1507521628349-dee9f2a7e3a1?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            background-attachment: fixed;
+            height: 100vh;
             display: flex;
-            flex-direction: row;
-            max-width: 1200px;
-            margin: 30px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background: #fff;
-            border-radius: 8px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
 
-        .sidebar {
-            width: 30%;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px;
-            text-align: center;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(249, 247, 243, 0.8), rgba(59, 130, 246, 0.2));
+            z-index: 0;
         }
 
-        .sidebar img {
-            width: 120px;
-            height: 120px;
+        .header img {
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            margin-bottom: 15px;
+            border: 10px solid #f59e0b;
+            margin-bottom: 30px;
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.8);
+            position: relative;
+            z-index: 1;
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .sidebar h1 {
-            font-size: 1.5em;
+        @keyframes glow {
+            from { box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); }
+            to { box-shadow: 0 0 40px rgba(245, 158, 11, 0.9); }
+        }
+
+        .header h1 {
+            font-size: 3.8em;
+            margin: 0;
+            font-weight: 700;
+            color: #374151;
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.7);
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.7em;
             margin: 10px 0;
+            position: relative;
+            z-index: 1;
+            color: #374151;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
         }
 
-        .sidebar p {
-            font-size: 1em;
-            margin: 5px 0;
-        }
-
-        .sidebar a {
-            color: #1abc9c;
+        .header a {
+            color: #f59e0b;
             text-decoration: none;
+            font-weight: 600;
+            margin: 0 20px;
+            transition: color 0.3s, transform 0.3s;
         }
 
-        .sidebar .skills-section {
-            margin-top: 20px;
-            text-align: left;
+        .header a:hover {
+            color: #d97706;
+            transform: scale(1.2);
         }
 
-        .sidebar .skills-section h2 {
-            font-size: 1.2em;
-            color: #ecf0f1;
-            margin-bottom: 10px;
-        }
-
-        .sidebar .skills-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar .skills-section ul li {
-            background: #34495e;
-            margin-bottom: 10px;
-            padding: 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-        }
-
-        .main {
-            width: 70%;
-            padding: 20px;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            border-bottom: 2px solid #1abc9c;
-            margin-bottom: 15px;
-            color: #2c3e50;
+        .portfolio {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 30px;
+            display: grid;
+            grid-template-areas:
+                "skills about"
+                "skills objective"
+                "skills education"
+                "projects projects";
+            gap: 40px;
         }
 
         .section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(59, 130, 246, 0.05));
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: zoomIn 1s ease-out forwards;
+            text-align: center;
+        }
+
+        .section:hover {
+            transform: scale(1);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.1);
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #f59e0b;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #374151;
+            margin: 15px 0 10px;
+            font-weight: 500;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            color: #4b5563;
+            max-width: 100%;
+            margin: 0 auto 20px;
+        }
+
+        .skills { grid-area: skills; min-height: 900px; width: 300px; }
+        .about-me { grid-area: about; min-height: 400px; }
+        .career-objective { grid-area: objective; min-height: 250px; }
+        .education { grid-area: education; min-height: 250px; }
+        .projects { grid-area: projects; min-height: 500px; }
+
+        .hobby-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-bottom: 20px;
         }
 
-        .section p, .section ul {
-            font-size: 1em;
-            margin: 10px 0;
-            color: #555;
+        .hobby-btn {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
         }
 
-        .section ul {
+        .hobby-btn.active {
+            background: #f59e0b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+        }
+
+        .hobby-btn:hover {
+            background: rgba(245, 158, 11, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
+
+        .hobby-content {
+            display: none;
+            text-align: center;
+        }
+
+        .hobby-content.active {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hobby-item {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(249, 247, 243, 0.9));
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 15px;
+            color: #374151;
+            font-size: 1.1em;
+            transition: background 0.3s, transform 0.3s;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .hobby-item:hover {
+            background: #f59e0b;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skills-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .skills-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .skills-box ul {
             list-style: none;
             padding: 0;
         }
 
-        .section ul li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background: #f9f9f9;
-            border-left: 4px solid #1abc9c;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .skills-box li {
+            display: flex;
+            align-items: center;
+            background: rgba(245, 158, 11, 0.1);
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 10px;
+            font-size: 1em;
+            color: #374151;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
         }
 
-        .section ul li strong {
-            color: #2c3e50;
+        .skills-box li::before {
+            content: '⚙️';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .skills-box li:hover {
+            background: #f59e0b;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
+            width: 100%;
+            max-width: 400px;
+            flex: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(245, 158, 11, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid #f59e0b;
+        }
+
+        .project-card .content {
+            padding: 25px;
+        }
+
+        .project-card h3 {
+            font-size: 1.6em;
+            color: #374151;
+            margin: 0 0 10px;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            font-size: 1em;
+            color: #4b5563;
+            margin: 8px 0;
+            text-align: left;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #fff;
+            background: #f59e0b;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .project-card a:hover {
+            background: #d97706;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px;
+            background: #e6f0fa;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            color: #374151;
+        }
+
+        .footer a {
+            color: #f59e0b;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #d97706;
         }
 
         @media (max-width: 768px) {
-            .container {
+            .portfolio {
+                grid-template-areas:
+                    "skills"
+                    "about"
+                    "objective"
+                    "education"
+                    "projects";
+            }
+
+            .skills { min-height: 300px; width: 100%; }
+            .about-me, .career-objective, .education { min-height: 250px; }
+            .projects { min-height: 400px; }
+
+            .header {
+                height: 80vh;
+                padding: 60px 20px;
+            }
+
+            .header img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .hobby-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hobby-content.active {
                 flex-direction: column;
             }
 
-            .sidebar {
-                width: 100%;
+            .hobby-item {
+                min-width: 100%;
             }
 
-            .main {
-                width: 100%;
+            .project-grid {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <img src="Photo/AnhCV.jpg" alt="Nguyen Hoa Khang">
-            <h1>Nguyen Hoa Khang</h1>
-            <p>Software Engineer</p>
-            <p>📞 (+84) 0931448210</p>
-            <p>✉️ <a href="mailto:Khang113324@gmail.com">Khang113324@gmail.com</a></p>
-            <p>📍 Ho Chi Minh City, Vietnam</p>
-            <p><a href="https://github.com/P1emon">GitHub</a></p>
-
-            <div class="skills-section">
-                <h2>Technical Skills</h2>
-                <ul>
-                    <li>C#</li>
-                    <li>Python</li>
-                    <li>ASP.NET</li>
-                    <li>SQL</li>
-                    <li>GitHub</li>
-                </ul>
-
-                <h2>Soft Skills</h2>
-                <ul>
-                    <li>Leadership</li>
-                    <li>Project Management</li>
-                    <li>Team Collaboration</li>
-                    <li>Problem Solving</li>
-                    <li>Communication</li>
-                    <li>Time Management</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="main">
-            <section class="section">
-                <h2>About Me</h2>
-                <p>A dedicated Software Engineer with experience in project management and full-stack development. Passionate about creating efficient, scalable solutions and leading development teams to successful project completion.</p>
-            </section>
-
-            <section class="section">
-                <h2>Education</h2>
-                <ul>
-                    <li>
-                        <strong>NIIE (Nguyen Tat Thanh Institute of International Education)</strong>
-                        <p>Bachelor in Computer and Information Science (09/2021 - 05/2025)</p>
-                        <p>GPA: 3.76/4.0 (9.00/10.00)</p>
-                        <p>Ho Chi Minh City, Vietnam</p>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2>Projects</h2>
-                <ul>
-                    <li>
-                        <strong>E-Commerce Shop</strong> (12/2024 - Present)
-                        <p>Role: Backend and Frontend Developer</p>
-                        <p>Technologies: ASP.NET Core, MailChimp, Tawk.to, PayPal, VnPay, Azure, MSSQL</p>
-                        <p>Overview: Developed a scalable e-commerce platform with user account management, secure payment integration, and promotional email automation using MailChimp and Azure services.</p>
-                        <p>Live Demo: <a href="https://3k1decmshop-fdgndaakayfqfzeq.southeastasia-01.azurewebsites.net" target="_blank">E-Commerce Shop</a></p>
-                        <a href="https://github.com/P1emon/Shop3K1D-EC">GitHub</a>
-                    </li>
-                    <li>
-                        <strong>Online Booking Cinema</strong> (07/2024 - 10/2024)
-                        <p>Role: Backend Developer</p>
-                        <p>Technologies: ASP.NET Core, Bootstrap5, SweetAlert2, MSSQL</p>
-                        <p>Overview: Built a web-based cinema booking system featuring seat selection, ticket purchasing, and user notifications for booking confirmations.</p>
-                        <a href="https://github.com/KAHOCCODE/FinalProject_3K1D">GitHub</a>
-                    </li>
-                    <li>
-                        <strong>WinForms Cinema Management System</strong> (2023 - 2024)
-                        <p>Role: Full-Stack Developer</p>
-                        <p>Technologies: C#, WinForms, MSSQL</p>
-                        <p>Overview: Developed a desktop-based cinema management application that supports scheduling, ticketing, and customer management with robust database integration.</p>
-                        <a href="https://github.com/KAHOCCODE/Cinema_3K1D">GitHub</a>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2>Achievements</h2>
-                <ul>
-                    <li>Third Prize - Daily Life Video Contest by English Club (12/2023)</li>
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2>Certifications</h2>
-                <ul>
-                    <li>Microsoft Office Specialist (MOS) - 06/2024</li>
-                </ul>
-            </section>
-        </div>
+    <div class="header">
+        <img src="Photo/AnhCV.jpg" alt="Nguyen Hoa Khang">
+        <h1>Nguyen Hoa Khang</h1>
+        <p>Software Engineer</p>
+        <p>
+            <a href="mailto:Khang113324@gmail.com">Khang113324@gmail.com</a> | 
+            <a href="https://github.com/P1emon" target="_blank">GitHub</a> | 
+            📞 (+84) 0931448210
+        </p>
     </div>
+
+    <div class="portfolio">
+        <section class="section skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skills-box">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+                <div class="skills-box">
+                    <h3>Framework</h3>
+                    <ul>
+                        <li>Bootstrap5</li>
+                        <li>SweetAlert2</li>
+                    </ul>
+                </div>
+                <div class="skills-box">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>ASP.NET Core</li>
+                        <li>Azure</li>
+                    </ul>
+                </div>
+                <div class="skills-box">
+                    <h3>Database</h3>
+                    <ul>
+                        <li>MSSQL</li>
+                    </ul>
+                </div>
+                <div class="skills-box">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>C#</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about-me">
+            <h2>About Me</h2>
+            <p>I'm a passionate coder with a flair for crafting cutting-edge solutions. I thrive on exploring new tech and turning ideas into reality with a creative twist. When I'm not coding, I dive into movies, conquer games, and groove to music.</p>
+            <div class="hobby-buttons">
+                <button class="hobby-btn" onclick="showHobby('movie')">Movies</button>
+                <button class="hobby-btn" onclick="showHobby('manga')">Manga</button>
+                <button class="hobby-btn" onclick="showHobby('game')">Games</button>
+                <button class="hobby-btn" onclick="showHobby('music')">Music</button>
+            </div>
+            <div id="movie-content" class="hobby-content">
+                <div class="hobby-item">Romance</div>
+                <div class="hobby-item">Comedy</div>
+                <div class="hobby-item">Anime</div>
+            </div>
+            <div id="manga-content" class="hobby-content">
+                <div class="hobby-item">Amagami-San Chi No Enmusubi!</div>
+                <div class="hobby-item">Mayonaka Heart Tune</div>
+                <div class="hobby-item">Spy x Family</div>
+            </div>
+            <div id="game-content" class="hobby-content">
+                <div class="hobby-item">Genshin Impact</div>
+                <div class="hobby-item">Honkai Star Rail</div>
+                <div class="hobby-item">Zenless Zone Zero</div>
+            </div>
+            <div id="music-content" class="hobby-content">
+                <div class="hobby-item">Matsuri (Fujii Kaze)</div>
+                <div class="hobby-item">Michi Teyu Ku (Fujii Kaze)</div>
+                <div class="hobby-item">Hana (Fujii Kaze)</div>
+            </div>
+        </section>
+
+        <section class="section career-objective">
+            <h2>Career Objective</h2>
+            <p><strong>Short-term:</strong> Become a skilled programmer proficient in ASP.NET Core, Azure, and real-world project development, enhancing professional and teamwork skills.</p>
+            <p><strong>Long-term:</strong> Achieve a Senior Software Engineer or Solution Architect role, designing large systems and co-founding a tech company focused on smart solutions.</p>
+        </section>
+
+        <section class="section education">
+            <h2>Education</h2>
+            <p><strong>Nguyen Tat Thanh University</strong></p>
+            <p>Software Engineering (2021 - 2025) | Grade: Good</p>
+            <p>Ho Chi Minh City, Vietnam</p>
+        </section>
+
+        <section class="section projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <!-- <img src="https://via.placeholder.com/400x300?text=E-Commerce+Shop" alt="E-Commerce Shop"> -->
+                    <div class="content">
+                        <h3>E-Commerce Shop (12/2024 - Present)</h3>
+                        <p><strong>Role:</strong> Backend & Frontend Developer</p>
+                        <p><strong>Tech:</strong> ASP.NET Core, MailChimp, Tawk.to, Azure, MSSQL</p>
+                        <p><strong>Overview:</strong> A scalable e-commerce platform with user management, secure payments, and email automation.</p>
+                        <a href="https://github.com/P1emon/Shop3K1D-EC" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <!-- <img src="https://via.placeholder.com/400x300?text=Online+Booking+Cinema" alt="Online Booking Cinema"> -->
+                    <div class="content">
+                        <h3>Online Booking Cinema (07/2024 - 10/2024)</h3>
+                        <p><strong>Role:</strong> Backend Developer</p>
+                        <p><strong>Tech:</strong> ASP.NET Core, Bootstrap5, SweetAlert2, MSSQL</p>
+                        <p><strong>Overview:</strong> A web-based cinema booking system with seat selection and notifications.</p>
+                        <a href="https://github.com/KAHOCCODE/FinalProject_3K1D" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <!-- <img src="https://via.placeholder.com/400x300?text=Cinema+Management" alt="Cinema Management System"> -->
+                    <div class="content">
+                        <h3>WinForms Cinema Management (10/2023 - 03/2024)</h3>
+                        <p><strong>Role:</strong> Full-Stack Developer</p>
+                        <p><strong>Tech:</strong> C#, WinForms, MSSQL</p>
+                        <p><strong>Overview:</strong> A desktop app for cinema scheduling, ticketing, and customer management.</p>
+                        <a href="https://github.com/KAHOCCODE/Cinema_3K1D" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Nguyen Hoa Khang | Built with Passion</p>
+        <p><a href="mailto:Khang113324@gmail.com">Contact Me</a></p>
+    </div>
+
+    <script>
+        function showHobby(hobby) {
+            const contents = document.querySelectorAll('.hobby-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.hobby-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`${hobby}-content`).classList.add('active');
+            document.querySelector(`.hobby-btn[onclick="showHobby('${hobby}')"]`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
